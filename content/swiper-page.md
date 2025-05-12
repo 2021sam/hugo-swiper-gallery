@@ -23,22 +23,3 @@ layout = "customswiper"
   <div class="swiper-button-prev"></div>
   <div class="swiper-pagination"></div>
 </div>
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
