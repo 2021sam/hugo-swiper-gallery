@@ -4,6 +4,7 @@ title = 'My Hugo Swiper Site'
 # theme = 'ananke'
 theme = 'hugo-arcana'
 
+
 [menu]
 
   [[menu.main]]

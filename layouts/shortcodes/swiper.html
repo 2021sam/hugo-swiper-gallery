@@ -1,0 +1,30 @@
+{{/* layouts/shortcodes/swiper.html */}}
+{{ $images := .Page.Params.swiperImages }}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<div class="swiper swiper-shortcode">
+  <div class="swiper-wrapper">
+    {{ range $images }}
+      <div class="swiper-slide">
+        <img src="{{ . | safeURL }}" alt="">
+      </div>
+    {{ end }}
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  new Swiper(".swiper-shortcode", {
+    loop: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+  });
+</script>

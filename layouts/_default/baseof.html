@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ .Title }}</title>
-
-  <!-- Swiper CSS (global) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- Your custom CSS -->
-  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+  {{ partial "head/head.html" . }}
+  {{ partial "head/custom-swiper-head.html" . }}
 </head>
-<body>
-  <!-- This is where page content goes -->
-  {{ block "main" . }}{{ end }}
-
-  <!-- Swiper JS (global) -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- Initialize ALL Swiper containers on the page -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.swiper-container').forEach(function (container) {
-        new Swiper(container, {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: container.querySelector('.swiper-button-next'),
-            prevEl: container.querySelector('.swiper-button-prev'),
-          },
-          pagination: {
-            el: container.querySelector('.swiper-pagination'),
-            clickable: true,
-          },
-        });
-      });
-    });
-  </script>
-</body>
-</html>
