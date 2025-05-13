@@ -1,31 +1,22 @@
-/* ✅ Global Swiper Styles */
+/* Swiper container size */
 .swiper {
-    width: 100%;
-    max-width: 800px;
-    height: 500px;
-    margin: 2rem auto;
-  }
-  
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #333;
-  }
-  
-  .swiper-pagination-bullet {
-    background: #333;
-  }
-  
-  /* ✅ Optional Global Page Styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-  }
-  
+  width: 100%;
+  height: 300px; /* Adjust height as needed */
+}
+
+/* Styling for images inside the swiper */
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Optional: Customize the Swiper pagination dots */
+.swiper-pagination {
+  bottom: 10px !important;
+}
+
+/* Optional: Adjust next/prev buttons */
+.swiper-button-next, .swiper-button-prev {
+  color: #000; /* Set button color */
+}
