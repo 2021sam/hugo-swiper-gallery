@@ -9,39 +9,32 @@
   
   <title>{{ .Title }}</title>
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- ✅ Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Your custom stylesheets -->
-  <!-- <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" /> -->
-
-  <!-- Other meta tags and scripts -->
+  <!-- ✅ Custom Global Styles -->
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
 </head>
 
 <body>
   {{ block "main" . }}{{ end }}
-  
-  <!-- Your other content -->
-  
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
 
+  <!-- ✅ Swiper JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- ✅ Global Swiper Init Script -->
   <script>
-    // Initialize Swiper
-    const swiper = new Swiper('.swiper-container', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
     });
-</script>
+  </script>
 </body>
 </html>
