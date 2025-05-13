@@ -1,33 +1,85 @@
 {{ define "main" }}
-  <div class="swiper">
+  <div class="swiper swiper1">
     <div class="swiper-wrapper">
-      {{ range .Params.swiperImages }}
+      {{ range .Params.swiperImages1 }}
         <div class="swiper-slide">
           <img src="{{ . }}" alt="Slide image" />
         </div>
       {{ end }}
     </div>
-
-    <!-- Add Pagination and Navigation -->
+    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
 
-  <!-- ✅ Swiper Init Script (must be here) -->
+  <div class="swiper swiper2">
+    <div class="swiper-wrapper">
+      {{ range .Params.swiperImages2 }}
+        <div class="swiper-slide">
+          <img src="{{ . }}" alt="Slide image" />
+        </div>
+      {{ end }}
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="swiper swiper3">
+    <div class="swiper-wrapper">
+      {{ range .Params.swiperImages3 }}
+        <div class="swiper-slide">
+          <img src="{{ . }}" alt="Slide image" />
+        </div>
+      {{ end }}
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new Swiper('.swiper', {
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
+    // Initialize Swiper instances for each swiper
+    const swiper1 = new Swiper('.swiper1', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    const swiper2 = new Swiper('.swiper2', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    const swiper3 = new Swiper('.swiper3', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
     });
   </script>
 {{ end }}
