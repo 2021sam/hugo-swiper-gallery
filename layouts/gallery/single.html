@@ -1,0 +1,37 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ range $i, $key := slice "swiperImages1" "swiperImages2" "swiperImages3" }}
+  {{ $images := index .Params $key }}
+  {{ if $images }}
+  <div class="swiper swiper-{{ $i }}">
+    <div class="swiper-wrapper">
+      {{ range $images }}
+        <div class="swiper-slide">
+          <img src="{{ . }}" alt="">
+        </div>
+      {{ end }}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  {{ end }}
+{{ end }}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  document.querySelectorAll(".swiper").forEach((el) => {
+    new Swiper(el, {
+      loop: true,
+      pagination: { el: el.querySelector(".swiper-pagination"), clickable: true },
+      navigation: {
+        nextEl: el.querySelector(".swiper-button-next"),
+        prevEl: el.querySelector(".swiper-button-prev")
+      },
+    });
+  });
+</script>
+{{ end }}
+
