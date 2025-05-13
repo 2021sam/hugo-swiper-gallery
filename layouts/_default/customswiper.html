@@ -1,53 +1,66 @@
-{{ define "main" }}
-  <div class="swiper swiper1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ .Site.Params.description }}" />
+  <title>{{ .Title }}</title>
+
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom Global Styles -->
+  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+
+</head>
+<body>
+  {{ block "main" . }}{{ end }}
+
+  <!-- Swiper 1 -->
+  <div class="swiper-container swiper1">
     <div class="swiper-wrapper">
       {{ range .Params.swiperImages1 }}
-        <div class="swiper-slide">
-          <img src="{{ . }}" alt="Slide image" />
-        </div>
+        <div class="swiper-slide"><img src="{{ . }}" alt="Image 1" style="width: 100%;"></div>
       {{ end }}
     </div>
-    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
-    <!-- Add Navigation -->
-    <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 
-  <div class="swiper swiper2">
+  <!-- Swiper 2 -->
+  <div class="swiper-container swiper2">
     <div class="swiper-wrapper">
       {{ range .Params.swiperImages2 }}
-        <div class="swiper-slide">
-          <img src="{{ . }}" alt="Slide image" />
-        </div>
+        <div class="swiper-slide"><img src="{{ . }}" alt="Image 2" style="width: 100%;"></div>
       {{ end }}
     </div>
-    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
-    <!-- Add Navigation -->
-    <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 
-  <div class="swiper swiper3">
+  <!-- Swiper 3 -->
+  <div class="swiper-container swiper3">
     <div class="swiper-wrapper">
       {{ range .Params.swiperImages3 }}
-        <div class="swiper-slide">
-          <img src="{{ . }}" alt="Slide image" />
-        </div>
+        <div class="swiper-slide"><img src="{{ . }}" alt="Image 3" style="width: 100%;"></div>
       {{ end }}
     </div>
-    <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
-    <!-- Add Navigation -->
-    <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 
+  <!-- Swiper JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init Script -->
   <script>
-    // Initialize Swiper instances for each swiper
     const swiper1 = new Swiper('.swiper1', {
       loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -60,6 +73,8 @@
 
     const swiper2 = new Swiper('.swiper2', {
       loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -72,6 +87,8 @@
 
     const swiper3 = new Swiper('.swiper3', {
       loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -82,4 +99,6 @@
       },
     });
   </script>
-{{ end }}
+
+</body>
+</html>
