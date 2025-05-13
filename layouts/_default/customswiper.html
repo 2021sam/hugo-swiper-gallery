@@ -1,22 +1,4 @@
-<!-- /Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/_default/customswiper.html -->
-
 {{ define "main" }}
-
-  <style>
-    .swiper {
-      width: 100%;
-      max-width: 800px;
-      height: 500px;
-      margin: 2rem auto;
-    }
-
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
-
   <div class="swiper">
     <div class="swiper-wrapper">
       {{ range .Params.swiperImages }}
@@ -26,25 +8,26 @@
       {{ end }}
     </div>
 
-    <!-- Add Pagination -->
+    <!-- Add Pagination and Navigation -->
     <div class="swiper-pagination"></div>
-
-    <!-- Add Navigation -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
 
+  <!-- ✅ Swiper Init Script (must be here) -->
   <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+    document.addEventListener("DOMContentLoaded", function () {
+      new Swiper('.swiper', {
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
     });
   </script>
 {{ end }}

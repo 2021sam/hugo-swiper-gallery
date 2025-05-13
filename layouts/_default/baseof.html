@@ -1,5 +1,3 @@
-<!-- /Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/_default/baseof.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,34 +7,17 @@
   
   <title>{{ .Title }}</title>
 
-  <!-- ✅ Swiper CSS (CDN) -->
+  <!-- ✅ Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <!-- ✅ Custom Global Styles -->
-
-  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
-
+  
+  <!-- ✅ Your global CSS -->
+  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
 </head>
 
 <body>
   {{ block "main" . }}{{ end }}
 
-  <!-- ✅ Swiper JS (CDN) -->
+  <!-- ✅ Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- ✅ Global Swiper Init Script -->
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
 </body>
 </html>
