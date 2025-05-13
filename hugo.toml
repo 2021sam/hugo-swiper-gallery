@@ -1,8 +1,28 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My Hugo Swiper Site'
-theme = 'ananke'
+# theme = 'ananke'
+theme = 'hugo-arcana'
 
-[markup]
-  [markup.goldmark.renderer]
-    unsafe = true
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+  [[menu.main]]
+  name = "Single Swiper"
+  url = "/single-swiper/"
+  weight = 2
+
+  [[menu.main]]
+  name = "Gallery"
+  url = "/gallery/"
+  weight = 2
+
+
+  [[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 3
