@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = "https://cabear.com/hugo/"
 languageCode = 'en-us'
 title = 'My Hugo Swiper Site'
 # theme = 'ananke'
