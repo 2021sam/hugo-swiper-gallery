@@ -1,0 +1,14 @@
+{{ range $index, $group := .Params.swiperGroups }}
+  <div class="swiper swiper{{ add $index 1 }}">
+    <div class="swiper-wrapper">
+      {{ range $group }}
+        <div class="swiper-slide">
+          <img src="{{ . }}" alt="Image {{ add $index 1 }}">
+        </div>
+      {{ end }}
+    </div>
+    <div class="swiper-pagination swiper-pagination-{{ add $index 1 }}"></div>
+    <div class="swiper-button-next swiper-button-next-{{ add $index 1 }}"></div>
+    <div class="swiper-button-prev swiper-button-prev-{{ add $index 1 }}"></div>
+  </div>
+{{ end }}
