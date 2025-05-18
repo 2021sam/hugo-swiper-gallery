@@ -1,18 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    const swiperCount = {{ len .Params.swiperGroups }};
-    for (let i = 1; i <= swiperCount; i++) {
-      new Swiper(`.swiper${i}`, {
-        loop: true,
-        pagination: {
-          el: `.swiper-pagination-${i}`,
-          clickable: true
-        },
-        navigation: {
-          nextEl: `.swiper-button-next-${i}`,
-          prevEl: `.swiper-button-prev-${i}`
-        },
-        slidesPerView: 1
-      });
-    }
-  </script>
-  
+  document.addEventListener("DOMContentLoaded", function () {
+    {{ range $index, $images := .Params }}
+      {{ if hasPrefix (string $index) "swiperImages" }}
+        new Swiper('.swiper{{ $index }}', {
+          loop: true,
+          slidesPerView: 1,
+          pagination: {
+            el: '.swiper-pagination-{{ $index }}',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next-{{ $index }}',
+            prevEl: '.swiper-button-prev-{{ $index }}'
+          }
+        });
+      {{ end }}
+    {{ end }}
+  });
+</script>
