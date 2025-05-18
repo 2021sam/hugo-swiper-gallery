@@ -1,80 +1,60 @@
-{{ define "main" }}
-/Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/gallery/single.html
+<!-- layouts/gallery/single.html -->
 
-<!-- Swiper 1 -->
-<div class="swiper swiper1">
-  <div class="swiper-wrapper">
-    {{ range .Params.swiperImages1 }}
-      <div class="swiper-slide">
-        <img src="{{ . }}" alt="Swiper Image 1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ .Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="{{ "css/swiper.css" | relURL }}">
+</head>
+<body>
+
+<main>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Content }}</p>
+
+  {{ range $index, $images := .Params }}
+    {{ if (hasPrefix (string $index) "swiperImages") }}
+      <div class="swiper swiper{{ $index }}">
+        <div class="swiper-wrapper">
+          {{ range $images }}
+            <div class="swiper-slide">
+              <img src="{{ . }}" alt="Image in {{ $index }}">
+            </div>
+          {{ end }}
+        </div>
+        <div class="swiper-pagination swiper-pagination-{{ $index }}"></div>
+        <div class="swiper-button-next swiper-button-next-{{ $index }}"></div>
+        <div class="swiper-button-prev swiper-button-prev-{{ $index }}"></div>
       </div>
     {{ end }}
-  </div>
-  <div class="swiper-pagination swiper-pagination-1"></div>
-  <div class="swiper-button-next swiper-button-next-1"></div>
-  <div class="swiper-button-prev swiper-button-prev-1"></div>
-</div>
+  {{ end }}
+</main>
 
-<!-- Swiper 2 -->
-<div class="swiper swiper2">
-  <div class="swiper-wrapper">
-    {{ range .Params.swiperImages2 }}
-      <div class="swiper-slide">
-        <img src="{{ . }}" alt="Swiper Image 2">
-      </div>
-    {{ end }}
-  </div>
-  <div class="swiper-pagination swiper-pagination-2"></div>
-  <div class="swiper-button-next swiper-button-next-2"></div>
-  <div class="swiper-button-prev swiper-button-prev-2"></div>
-</div>
-
-<!-- Swiper 3 -->
-<div class="swiper swiper3">
-  <div class="swiper-wrapper">
-    {{ range .Params.swiperImages3 }}
-      <div class="swiper-slide">
-        <img src="{{ . }}" alt="Swiper Image 3">
-      </div>
-    {{ end }}
-  </div>
-  <div class="swiper-pagination swiper-pagination-3"></div>
-  <div class="swiper-button-next swiper-button-next-3"></div>
-  <div class="swiper-button-prev swiper-button-prev-3"></div>
-</div>
-
-{{ end }}
-
-{{ define "scripts" }}
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  new Swiper('.swiper1', {
-    loop: true,
-    pagination: { el: '.swiper-pagination-1', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next-1',
-      prevEl: '.swiper-button-prev-1',
-    },
-    slidesPerView: 1,
-  });
-
-  new Swiper('.swiper2', {
-    loop: true,
-    pagination: { el: '.swiper-pagination-2', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next-2',
-      prevEl: '.swiper-button-prev-2',
-    },
-    slidesPerView: 1,
-  });
-
-  new Swiper('.swiper3', {
-    loop: true,
-    pagination: { el: '.swiper-pagination-3', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next-3',
-      prevEl: '.swiper-button-prev-3',
-    },
-    slidesPerView: 1,
-  });
+  {{ range $index, $images := .Params }}
+    {{ if (hasPrefix (string $index) "swiperImages") }}
+      new Swiper('.swiper{{ $index }}', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination-{{ $index }}',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next-{{ $index }}',
+          prevEl: '.swiper-button-prev-{{ $index }}'
+        },
+        slidesPerView: 1
+      });
+    {{ end }}
+  {{ end }}
 </script>
-{{ end }}
+
+</body>
+</html>

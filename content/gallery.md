@@ -1,6 +1,7 @@
 +++
 title = "Gallery Page"
-layout = "gallery"
+# layout = "gallery"
+layout = "swiper/swiper-gallery"
 swiperImages1 = [
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
   "https://images.unsplash.com/photo-1494526585095-c41746248156",
