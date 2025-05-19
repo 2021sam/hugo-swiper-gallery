@@ -1,25 +1,7 @@
-/Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/partials/swiper-gallery.html
-
-
-{{/* Partial: renders all your swiper containers */}}
-
-{{ partial "swiper-gallery-scripts.html" . }}
-
 <main>
-  {{ range $key, $images := .Params }}
-    {{ if hasPrefix (string $key) "swiperImages" }}
-      <div class="swiper {{ $key }}">
-        <div class="swiper-wrapper">
-          {{ range $images }}
-            <div class="swiper-slide">
-              <img src="{{ . }}" alt="Slide from {{ $key }}" />
-            </div>
-          {{ end }}
-        </div>
-        <div class="swiper-pagination pagination-{{ $key }}"></div>
-        <div class="swiper-button-prev prev-{{ $key }}"></div>
-        <div class="swiper-button-next next-{{ $key }}"></div>
-      </div>
-    {{ end }}
-  {{ end }}
+************************************<br>
+/Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/partials/swiper-gallery.html
+  <!-- DEBUG marker -->
+  <div style="background: lightblue; padding: 1rem;">Main content loaded from _default/swiper-gallery.html</div>
+
 </main>
