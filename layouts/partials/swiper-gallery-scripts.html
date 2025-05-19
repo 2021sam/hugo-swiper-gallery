@@ -1,21 +1,22 @@
-<!-- Partial: loads Swiper JS and initializes each instance -->
-{{/* Usage: {{ partial "swiper-gallery-scripts.html" . }} */}}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  document.querySelectorAll('div.swiper').forEach((container) => {
-    const cls = Array.from(container.classList).find(c => c.startsWith('swiperImages'));
-    if (!cls) return;
-    new Swiper('.' + cls, {
-      loop: true,
-      pagination: {
-        el: '.pagination-' + cls,
-        clickable: true,
-      },
-      navigation: {
-        prevEl: '.prev-' + cls,
-        nextEl: '.next-' + cls,
-      },
-      slidesPerView: 1,
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof Swiper === 'undefined') {
+      console.error("Swiper is not loaded.");
+      return;
+    }
+
+    document.querySelectorAll('.swiper').forEach((el) => {
+      new Swiper(el, {
+        loop: true,
+        pagination: {
+          el: el.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+        navigation: {
+          nextEl: el.querySelector('.swiper-button-next'),
+          prevEl: el.querySelector('.swiper-button-prev'),
+        },
+      });
     });
   });
 </script>

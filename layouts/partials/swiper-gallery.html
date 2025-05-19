@@ -3,6 +3,10 @@
   swiper-gallery.html partial loaded
 </div>
 
+<pre style="color:red;">{{ jsonify .Params }}</pre>
+
+
+
 {{ range $index, $images := .Params }}
   {{ if hasPrefix (string $index) "swiperImages" }}
     <div class="swiper swiper{{ $index }}">
