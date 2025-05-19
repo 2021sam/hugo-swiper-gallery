@@ -1,12 +1,12 @@
 {{ define "main" }}
-  <!-- Confirming this layout is loaded -->
-  <p>Layout: /layouts/_default/swiper-gallery.html</p>
+<main>
+  <!-- DEBUG marker -->
+  <div style="background: lightblue; padding: 1rem;">Main content loaded from _default/swiper-gallery.html</div>
 
-  <main>
-    <!-- Include partial for swiper containers -->
-    {{ partial "swiper-gallery.html" . }}
-  </main>
+  <!-- Call the Swiper partial that handles looping -->
+  {{ partial "swiper-gallery.html" . }}
+</main>
 
-  <!-- Include scripts needed for Swiper -->
-  {{ partial "swiper/scripts.html" . }}
+<!-- Swiper scripts -->
+{{ partial "swiper/scripts.html" . }}
 {{ end }}
