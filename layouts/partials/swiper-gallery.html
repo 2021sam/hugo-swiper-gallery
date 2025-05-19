@@ -1,25 +1,21 @@
-<!-- swiper-gallery.html PARTIAL LOADED -->
 <div style="background: yellow; padding: 1rem; font-weight: bold;">
   swiper-gallery.html partial loaded
 </div>
 
-<pre style="color:red;">{{ jsonify .Params }}</pre>
-
-
-
-{{ range $index, $images := .Params }}
-  {{ if hasPrefix (string $index) "swiperImages" }}
-    <div class="swiper swiper{{ $index }}">
+{{ range $key, $images := .Params }}
+  {{ if hasPrefix (lower $key) "swiperimages" }}
+    <div class="swiper {{ $key }}">
       <div class="swiper-wrapper">
         {{ range $images }}
           <div class="swiper-slide">
-            <img src="{{ . }}" alt="Image {{ $index }}" />
+            <img src="{{ . }}" alt="Slide" />
           </div>
         {{ end }}
       </div>
-      <div class="swiper-pagination swiper-pagination-{{ $index }}"></div>
-      <div class="swiper-button-next swiper-button-next-{{ $index }}"></div>
-      <div class="swiper-button-prev swiper-button-prev-{{ $index }}"></div>
+
+      <div class="swiper-pagination pagination-{{ $key }}"></div>
+      <div class="swiper-button-prev prev-{{ $key }}"></div>
+      <div class="swiper-button-next next-{{ $key }}"></div>
     </div>
   {{ end }}
 {{ end }}

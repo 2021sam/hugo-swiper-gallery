@@ -1,6 +1,12 @@
 {{ define "main" }}
+<main>
+  <!-- DEBUG marker -->
   <div style="background: lightblue; padding: 1rem;">Main content loaded from _default/swiper-gallery.html</div>
 
+  <!-- Call the Swiper partial that handles looping -->
   {{ partial "swiper-gallery.html" . }}
-  {{ partial "swiper-gallery-scripts.html" . }}
+</main>
+
+<!-- Swiper scripts -->
+{{ partial "swiper/scripts.html" . }}
 {{ end }}
