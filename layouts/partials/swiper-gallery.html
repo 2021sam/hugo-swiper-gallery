@@ -1,9 +1,7 @@
-<div style="background: yellow; padding: 1rem; font-weight: bold;">
-  swiper-gallery.html partial loaded
-</div>
+<div style="background: yellow;">swiper-gallery.html partial loaded</div>
 
 {{ range $key, $images := .Params }}
-  {{ if hasPrefix $key "swiperImages" }}
+  {{ if and (strings.HasPrefix $key "swiperImages") (eq (printf "%T" $images) "[]interface {}") }}
     <div class="swiper {{ $key }}">
       <div class="swiper-wrapper">
         {{ range $images }}

@@ -2,17 +2,19 @@
   document.addEventListener('DOMContentLoaded', function () {
     const swipers = document.querySelectorAll('.swiper');
     swipers.forEach(function (container) {
-      const key = [...container.classList].find(cls => cls.startsWith('swiperImages'));
-      new Swiper('.' + key, {
+      const key = Array.from(container.classList).find(cls => cls.startsWith('swiperImages'));
+      if (!key) return;
+
+      new Swiper(`.${key}`, {
         loop: true,
         pagination: {
-          el: '.pagination-' + key,
-          clickable: true
+          el: `.pagination-${key}`,
+          clickable: true,
         },
         navigation: {
-          nextEl: '.next-' + key,
-          prevEl: '.prev-' + key
-        }
+          nextEl: `.next-${key}`,
+          prevEl: `.prev-${key}`,
+        },
       });
     });
   });
