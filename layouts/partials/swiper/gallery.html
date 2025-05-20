@@ -1,14 +1,18 @@
 <div style="background: yellow;">swiper-gallery.html partial loaded</div>
 
-{{/* layouts/partials/swiper-gallery.html */}}
 {{/* Renders all your swiperImages groups */}}
+{{/* layouts/partials/swiper/gallery.html */}}
 
-{{ range $key, $images := .Params }}
-  {{ $lk := lower $key }}
-  {{ if hasPrefix $lk "swiperimages" }}
+{{ $gallery := site.Data.swipers.gallery }}
+
+{{ range $key, $val := $gallery }}
+  <div class="info-box">
+    <h2 class="info-box-title">{{ $val.header }}</h2>
+    <p class="info-box-description">{{ $val.description }}</p>
+
     <div class="swiper {{ $key }}">
       <div class="swiper-wrapper">
-        {{ range $images }}
+        {{ range $val.images }}
           <div class="swiper-slide">
             <img src="{{ . }}" alt="Slide from {{ $key }}" />
           </div>
@@ -18,5 +22,5 @@
       <div class="swiper-button-prev prev-{{ $key }}"></div>
       <div class="swiper-button-next next-{{ $key }}"></div>
     </div>
-  {{ end }}
+  </div>
 {{ end }}
