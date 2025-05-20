@@ -1,6 +1,6 @@
 <!-- /Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/layouts/_default/baseof.html -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,16 +9,16 @@
 
     {{- partial "head/head.html" . -}}
 
+
     <!-- Swiper CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-  
+
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" />
 
-    <link rel="stylesheet" href="{{ "css/swiper.css" | relURL }}">
-
+    <link rel="stylesheet" href="{{ "css/swiper.css" | relURL }}" />
   </head>
 
   <body class="{{ .Type }} {{ .Section }} layout-{{ .Layout }}">
@@ -36,8 +36,8 @@
 
     {{ partial "scripts.html" . }}
 
+
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     {{ block "scripts" . }}{{ end }}
   </body>
 </html>
