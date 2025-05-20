@@ -5,6 +5,15 @@
 
 {{ $gallery := site.Data.swipers.gallery }}
 
+{{ if not $gallery }}
+  <p style="color: red;">No gallery data found!</p>
+{{ end }}
+
+{{ if $gallery }}
+  <p style="color: blue;">Got gallery!</p>
+{{ end }}
+
+
 {{ range $key, $val := $gallery }}
   <div class="info-box">
     <h2 class="info-box-title">{{ $val.header }}</h2>
