@@ -20,10 +20,10 @@ theme = 'hugo-arcana'
   [[menu.main]]
   name = "Gallery"
   url = "/gallery/"
-  weight = 2
+  weight = 3
 
 
   [[menu.main]]
-  name = "About"
-  url = "/about/"
-  weight = 3
+  name = "Showcase"
+  url = "/showcase/"
+  weight = 4
