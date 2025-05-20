@@ -2,7 +2,6 @@
 title = "Gallery Page"
 layout = "swiper-gallery"
 
-[params]
 swiperImages1 = [
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
   "https://images.unsplash.com/photo-1494526585095-c41746248156",
@@ -19,5 +18,6 @@ swiperImages3 = [
   "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
 ]
 +++
+
 Welcome to the Gallery!
 /Users/2021sam/apps/BEAR/hugo/05_11/hugo-swiper/content/gallery.md
