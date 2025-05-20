@@ -6,7 +6,10 @@
 {{/* layouts/partials/swiper/scripts.html */}}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  {{ range $key, $images := .Params }}
+
+  {{ $gallery := site.Data.swipers.gallery }}
+  {{ range $key, $images := $gallery }}
+
     {{ if hasPrefix (lower $key) "swiper_images_" }}
       new Swiper(".{{ $key }}", {
         loop: true,
