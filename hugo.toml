@@ -2,7 +2,6 @@ baseURL = "http://localhost:1313/"
 # baseURL = "https://cabear.com/hugo/"
 languageCode = 'en-us'
 title = 'My Hugo Swiper Site'
-# theme = 'ananke'
 theme = 'hugo-arcana'
 
 
