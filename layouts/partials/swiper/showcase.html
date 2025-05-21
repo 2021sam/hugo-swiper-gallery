@@ -1,41 +1,27 @@
 <div style="background: orange;">swiper-gallery.html partial loaded</div>
 
 {{/* layouts/partials/swiper/showcase.html */}}
-{{ $ctx   := .ctx }}
-{{ $data  := .data }}             {{/* e.g. "showcase" or "gallery" */}}
-{{ $idx   := .index }}            {{/* e.g. 2 */}}
+{{ $ctx  := .ctx }}
+{{ $data := .data }}             {{/* e.g. "showcase" or "gallery" */}}
+{{ $idx  := .index }}            {{/* e.g. 2 */}}
 
-{{ $key   := printf "swiper_images_%d" $idx }}
-{{ $all   := index site.Data.swipers $data }}
-{{ $show  := index $all $key }}
-
-
-
-
-<div class="swiper-wrapper-block">
-  <div class="info-box">
-    <div class="info-box-media">
-      <div class="image-flip-container">
-        <div class="image-front">
-          <img src="/images/logo/bearpawCircle-1.png" width="149" height="154" />
-        </div>
-        <div class="image-back">
-          <img src="/images/logo/bearCircle.png" width="149" height="154" />
-        </div>
-      </div>
-    </div>
-    <div class="info-box-text">
-      <h2>{{ $val.header }}</h2>
-      <p>{{ $val.description }}</p>
-    </div>
-  </div>
-
-
+{{ $key  := printf "swiper_images_%d" $idx }}
+{{ $all  := index site.Data.swipers $data }}
+{{ $show := index $all $key }}
 
 {{ if $show }}
 <section class="showcase-section showcase-{{ $idx }}">
   <div class="info-box">
-    <div class="info-box-media"> …flip logos… </div>
+    <div class="info-box-media">
+      <div class="image-flip-container">
+        <div class="image-front">
+          <img src="/images/logo/bearpawCircle-1.png" alt="Front logo" />
+        </div>
+        <div class="image-back">
+          <img src="/images/logo/bearCircle.png" alt="Back logo" />
+        </div>
+      </div>
+    </div>
     <div class="info-box-text">
       <h2>{{ $show.header }}</h2>
       <p>{{ $show.description }}</p>
@@ -46,7 +32,7 @@
     <div class="swiper-wrapper">
       {{ range $show.images }}
         <div class="swiper-slide">
-          <img src="{{ . }}" alt="">
+          <img src="{{ . }}" alt="Slide from {{ $key }}">
         </div>
       {{ end }}
     </div>

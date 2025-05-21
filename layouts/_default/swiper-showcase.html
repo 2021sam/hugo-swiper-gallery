@@ -3,7 +3,9 @@
     Main content loaded from _default/swiper-showcase.html
   </div>
 
+  {{ partial "swiper/showcase.html" (dict "ctx" . "data" "showcase" "index" 1) }}
   {{ partial "swiper/showcase.html" (dict "ctx" . "data" "showcase" "index" 2) }}
+  {{ partial "swiper/showcase.html" (dict "ctx" . "data" "showcase" "index" 3) }}
 
   {{ partial "swiper/init.html" . }}
 {{ end }}
