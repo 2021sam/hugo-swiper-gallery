@@ -26,6 +26,16 @@
   perspective: 1000px;
 }
 
+/* 
+.image-flip-container {
+  width: 75px;
+  height: 77px;
+  perspective: 1000px;
+  position: relative;
+} */
+
+
+
 .image-front,
 .image-back {
   width: 100%;
