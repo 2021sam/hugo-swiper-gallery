@@ -1,61 +1,45 @@
 <div style="background: orange;">swiper-gallery.html partial loaded</div>
 
+{{/* 
+  Partial: renders exactly one “showcase” slider.
+  Usage: {{ partial "swiper/showcase.html" (dict "ctx" . "index" 2) }}
+*/}}
 
-<section class="showcase-section">
-  <div style="background: yellow">
-    layouts/partials/swiper/gallery.html partial loaded
+{{ $ctx   := .ctx }}
+{{ $idx   := .index }}
+{{ $key   := printf "swiper_images_%d" $idx }}
+{{ $show  := index site.Data.swipers.showcase $key }}
+
+{{ if $show }}
+<section class="showcase-section showcase-{{ $idx }}">
+  <div class="info-box">
+    <div class="info-box-media">
+      <div class="image-flip-container">
+        <div class="image-front">
+          <img src="/images/logo/bearpawCircle-1.png" alt="" />
+        </div>
+        <div class="image-back">
+          <img src="/images/logo/bearCircle.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="info-box-text">
+      <h2>{{ $show.header }}</h2>
+      <p>{{ $show.description }}</p>
+    </div>
   </div>
 
-  {{ $showcase := site.Data.swipers.showcase }}
-
-  {{ range $key, $val := $showcase }}
-    <div class="swiper-wrapper-block">
-      <div class="info-box">
-        <div class="info-box-media">
-          <div class="image-flip-container">
-            <div class="image-front">
-              <img src="/images/logo/bearpawCircle-1.png" width="149" height="154" />
-            </div>
-            <div class="image-back">
-              <img src="/images/logo/bearCircle.png" width="149" height="154" />
-            </div>
-          </div>
+  <div class="swiper {{ $key }}">
+    <div class="swiper-wrapper">
+      {{ range $show.images }}
+        <div class="swiper-slide">
+          <img src="{{ . }}" alt="">
         </div>
-        <div class="info-box-text">
-          <h2>{{ $val.header }}</h2>
-          <p>{{ $val.description }}</p>
-        </div>
-      </div>
-
-      <div class="swiper {{ $key }}">
-        <div class="swiper-wrapper">
-          {{ range $img := $val.images }}
-          <div class="swiper-slide">
-            <img src="{{ $img }}" alt="Slide from {{ $key }}" />
-          </div>
-          {{ end }}
-        </div>
-        <div class="swiper-pagination pagination-{{ $key }}"></div>
-        <div class="swiper-button-prev prev-{{ $key }}"></div>
-        <div class="swiper-button-next next-{{ $key }}"></div>
-      </div>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          new Swiper(".{{ $key }}", {
-            loop: true,
-            pagination: {
-              el: ".pagination-{{ $key }}",
-              clickable: true,
-            },
-            navigation: {
-              nextEl: ".next-{{ $key }}",
-              prevEl: ".prev-{{ $key }}",
-            },
-            slidesPerView: 1,
-          });
-        });
-      </script>
+      {{ end }}
     </div>
-  {{ end }}
+    <div class="swiper-pagination pagination-{{ $key }}"></div>
+    <div class="swiper-button-prev prev-{{ $key }}"></div>
+    <div class="swiper-button-next next-{{ $key }}"></div>
+  </div>
 </section>
+{{ end }}
