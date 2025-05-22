@@ -8,4 +8,4 @@ Welcome to the Showcase!
 1
 {{< showcase index="1" data="showcase" >}}
 2
-{{< showcase index="2" data="showcase" >}}
+{{< showcase index="3" data="showcase" >}}
