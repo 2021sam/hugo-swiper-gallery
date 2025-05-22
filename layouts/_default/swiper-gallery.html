@@ -4,5 +4,7 @@
   </div>
 
   {{ partial "swiper/gallery.html" . }}
-  {{ partial "swiper/init.html" (dict "data" "gallery") }}
+  <!-- {{ partial "swiper/init.html" (dict "data" "gallery") }} -->
+  {{ partial "swiper/init.html" (dict "ctx" . "data" "gallery") }}
+
 {{ end }}
