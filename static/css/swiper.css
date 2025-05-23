@@ -29,10 +29,12 @@
 /* ✅ Image inside slide */
 .swiper-slide img {
   width: 100%;
-  height: 100%;               /* ✅ Fill slide vertically */
-  object-fit: cover;          /* ✅ Crop instead of stretch */
+  height: auto;              /* 🔄 Let it scale naturally */
+  max-height: 100%;          /* ✅ Prevent overflow */
+  object-fit: contain;       /* or 'cover' if you prefer cropping */
   display: block;
   border-radius: 8px;
+  background-color: #fff;    /* ✅ Avoid transparent background */
 }
 
 /* ✅ Optional: Mobile override */
